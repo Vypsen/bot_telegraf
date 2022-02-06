@@ -1,0 +1,22 @@
+{
+    "name": "daily_bot",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@cicciosgamino/openweather-apis": "^5.2.0",
+        "dotenv": "^16.0.0",
+        "node-fetch": "^3.2.0",
+        "node-telegram-bot-api": "^0.56.0",
+        "nodemon": "^2.0.15",
+        "openweather-apis": "^4.4.2",
+        "telegraf": "^4.7.0"
+    }
+}
