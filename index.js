@@ -31,6 +31,9 @@ bot.start(ctx => ctx.reply('111'))
 
 bot.command('weather', (ctx) => ctx.scene.enter('weatherScene'))
 
+
+
 bot.launch()
+
 process.once('SIGINT', () => bot.stop('SIGINT'))
 process.once('SIGTERM', () => bot.stop('SIGTERM'))
