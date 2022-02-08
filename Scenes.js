@@ -6,7 +6,6 @@ const weatherScene = new BaseScene('weatherScene')
 const stage = new Stage([weatherScene])
 weatherScene.enter((ctx) => ctx.reply('укажите населеный пункт или напишите на exit чтобы выйти из меню погоды', exit_keyboard))
 
-
 weatherScene.on('text', async ctx => {
     const city = ctx.message.text
     const city_on_eng = await getTranslate(city)
