@@ -13,8 +13,11 @@
     "dependencies": {
         "@cicciosgamino/openweather-apis": "^5.2.0",
         "axios": "^0.25.0",
+        "cloudconvert": "^2.2.4",
         "dotenv": "^16.0.0",
+        "fs": "^0.0.1-security",
         "google-translate-api": "^2.3.0",
+        "http": "^0.0.1-security",
         "node-fetch": "^3.2.0",
         "node-telegram-bot-api": "^0.56.0",
         "nodemon": "^2.0.15",

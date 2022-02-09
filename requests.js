@@ -1,5 +1,7 @@
 const axios = require('axios')
 const translate_lib = require('translate-google')
+const CloudConvert = require('cloudconvert');
+
 
 const getTranslate = (city) => {
     return translate_lib(city, { to: 'en' })
@@ -24,18 +26,16 @@ const getLocation = (city) => {
         })
 }
 
-
 const getWeather = (lat, lon) => {
-    const url = `https://api.weather.yandex.ru/v2/forecast?/lat=${lat}&lon=${lon}&extra=true`
+    const url = `https://api.weather.yandex.ru/v2/forecast?/lat=${lat}&lon=${lon}`
     return axios.get(url, {
             headers: {
                 'Content-Type': 'application/json',
                 'X-Yandex-API-Key': 'd7a353f2-7ab6-4562-9ca2-e9be82eff6fb'
             },
-
         })
         .then(res => {
-            return res
+            return res.data
         })
         .catch(error => {
             console.log(error)
@@ -43,4 +43,7 @@ const getWeather = (lat, lon) => {
 }
 
 
+const getConvert = () => {
+
+}
 module.exports = { getTranslate, getLocation, getWeather }

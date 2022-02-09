@@ -1,23 +1,3 @@
-//ZALUPA
-// const TelegramBot = require('node-telegram-bot-api')
-// require('dotenv').config()
-
-// const bot = new TelegramBot(process.env.BOT_TOKEN, {
-//     polling: true
-// })
-
-// bot.onText(/\/start (.+)/, (msg, [command, command_text]) => {
-//     console.log('1')
-//     const { id } = msg.chat
-//     bot.sendMessage(id, JSON.stringify(command_text, null, 4))
-// })
-
-// bot.onText(/\/start/, (msg) => {
-//     const { id } = msg.chat
-//     bot.sendMessage(id, 'введите нужный город после команды weather')
-// })
-
-
 const { session, Scenes: { BaseScene, Stage } } = require('telegraf')
 const { Telegraf } = require('telegraf')
 const stage = require('./Scenes')
