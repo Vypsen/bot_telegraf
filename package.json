@@ -4,8 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon index.js"
+        "start": "nodemon index.js",
+        "test": "nodemon test.js"
     },
     "keywords": [],
     "author": "",
@@ -16,12 +16,14 @@
         "cloudconvert": "^2.2.4",
         "dotenv": "^16.0.0",
         "fs": "^0.0.1-security",
-        "google-translate-api": "^2.3.0",
+        "google-translate-api": "^2.0.3",
         "http": "^0.0.1-security",
+        "mongodb": "^4.3.1",
         "node-fetch": "^3.2.0",
         "node-telegram-bot-api": "^0.56.0",
         "nodemon": "^2.0.15",
         "openweather-apis": "^4.4.2",
+        "pg": "^8.7.3",
         "telegraf": "^4.7.0",
         "translate-google": "^1.5.0"
     }

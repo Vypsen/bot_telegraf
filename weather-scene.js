@@ -3,9 +3,11 @@ const { getTranslate, getLocation, getWeather } = require('./requests')
 const exit_keyboard = Markup.keyboard(['exit']).oneTime().resize()
 
 const weatherScene = new BaseScene('weatherScene')
-const stage = new Stage([weatherScene])
 
-weatherScene.enter((ctx) => ctx.reply('укажите населенный пункт или напишите на exit чтобы выйти из меню погоды', exit_keyboard))
+weatherScene.enter(ctx => {
+    ctx.reply('укажите населенный пункт или напишите на exit чтобы выйти из меню погоды',
+    exit_keyboard
+)})
 
 weatherScene.on('text', async ctx => {
     const city = ctx.message.text
@@ -18,8 +20,9 @@ weatherScene.on('text', async ctx => {
     }
     
 })
-weatherScene.leave(ctx => {ctx.reply("выход из меню погоды",Markup.removeKeyboard())})
-stage.hears('exit', ctx => ctx.scene.leave())
+weatherScene.leave(ctx => {ctx.reply(
+    "выход из меню погоды",Markup.removeKeyboard()
+)})
 
 
 const createMessage = async (city) => {
@@ -47,4 +50,4 @@ const createMessage = async (city) => {
     
 }
 
-module.exports = stage
+module.exports = weatherScene
