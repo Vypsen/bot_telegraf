@@ -3,8 +3,8 @@ const { Telegraf,  Scenes: { BaseScene, Stage } } = require('telegraf')
 const weatherScene = require('./weather-scene')
 require('dotenv').config()
 const reminderScene = require('./reminder-scene')
-const {Bd} = require('./bd_method')
-const bd = new Bd()
+const {Db} = require('./db_method')
+const db = new Db()
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
 const stage = new Stage([weatherScene,reminderScene])
@@ -18,7 +18,8 @@ bot.start(ctx =>{
 
     try {
         const chat_id = ctx.message.chat.id.toString()
-        bd.setUserBd(chat_id)
+        const first_name_user = ctx.message.chat.first_name
+        db.setUserDb(chat_id, first_name_user)
     } catch (error) {
         console.log('ошибка при добавлении в бд')
     }
@@ -31,7 +32,7 @@ bot.command('reminder', ctx =>{
     ctx.scene.enter('reminderScene')
 })
 bot.on('text', ctx => {
-    ctx.reply('это текст')
+    ctx.reply('это текст') 
 })
 
 
