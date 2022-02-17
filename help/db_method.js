@@ -14,9 +14,7 @@
 const { Pool, Client } = require('pg')
 require('dotenv').config()
 
-
 class Db{
-
     constructor() {
         this.pool = new Pool({
             user: 'postgres',
@@ -50,6 +48,32 @@ class Db{
         .then(res => console.log(res.rows))
         .catch(e => {console.log(e.stack)})
     }
+
+    async getMinTimeTask(user_id){
+        return this.pool
+        .query(`SELECT * FROM tasks 
+        WHERE time_task = 
+        (SELECT MIN(time_task) 
+        FROM TASKS
+         WHERE user_id = ${user_id}
+         ) AND user_id = ${user_id}`)
+        .then(res => {return res.rows[0]})
+        .catch(e => {console.log(e.stack)})
+    }
+
+    async deleteMinTimeTask(user_id){
+        return this.pool
+        .query(`DELETE FROM tasks 
+        WHERE time_task = 
+        (SELECT MIN(time_task) 
+        FROM TASKS
+         WHERE user_id = ${user_id}
+         ) AND user_id = ${user_id}`)
+        .then(res => {return res.rows[0]})
+        .catch(e => {console.log(e.stack)})
+    }
+
+
 }
 
 module.exports = {Db}

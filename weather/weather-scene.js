@@ -1,5 +1,5 @@
 const { Scenes: { BaseScene, Stage }, Markup } = require('telegraf')
-const { getTranslate, getLocation, getWeather } = require('./requests')
+const { getTranslate, getLocation, getWeather } = require('../help/requests')
 const exit_keyboard = Markup.keyboard(['exit']).oneTime().resize()
 
 const weatherScene = new BaseScene('weatherScene')
@@ -30,6 +30,7 @@ const createMessage = async (city) => {
     const city_data = await getLocation(city_on_eng)
     const lat = city_data[0].geometry.lat
     const lon = city_data[0].geometry.lng
+    
     console.log(lat,lon)
     if(city_data[0].components._type == 'city' || city_data[0].components._type == 'village')
     {
